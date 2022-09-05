@@ -21,6 +21,12 @@ Ce dépôt possède une ou deux branches par leçon (vidéo de cours). Vous pouv
 Les branches sont structurées pour correspondre aux leçons (vidéos de cours). La convention de nommage est CHAPITRE#-VIDEO#. Par exemple, la branche nommée 02-03 correspond au second chapitre et troisième vidéo du chapitre. 
 Certaines branches auront un état de début et de fin. Elles sont marquées par un b pour "beginning" (début) et e pour "end" (fin). La branche b contient les fichiers tels qu'ils sont au début de la leçon. La branche e contient les fichiers qui ont changé.
 
+## Formateur
+
+**Sylvain Labasse** 
+
+Retrouvez mes autres formations sur [LinkedIn Learning][lil-URL-trainer].
 
 [lil-course-url]: https://www.linkedin.com/learning/java-defis-code-2841480-cs
 [lil-thumbnail-url]: https://cdn.lynda.com/course/2825378/2825378-1584377756312-16x9.jpg
+[lil-URL-trainer]: https://www.linkedin.com/learning/instructors/sylvain-labasse
