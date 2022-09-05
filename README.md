@@ -1,36 +1,26 @@
-# COURSENAME
-This is the repository for the LinkedIn Learning course `course-name`. The full course is available from [LinkedIn Learning][lil-course-url].
+# Java : Défis de Code
+Dépôt du cours Défis de code Java. Le cours complet est disponible sur LinkedIn Learning.
 
-![course-name-alt-text][lil-thumbnail-url] 
+Que vous soyez développeuse ou développeur java débutant-e, confirmé-e ou expert-e, vous trouverez dans ces défis de quoi mettre à l'épreuve vos compétences. Ce cours propose 18 défis qui abordent des bonnes pratiques, des astuces de programmation, des challenges algorithmiques ou des tendances comme l'immutabilité ou le parallélisme. En sortant de votre zone de confort, vous consoliderez votre maîtrise du langage et stimulerez vos neurones pour reprendre vos projets java avec des approches nouvelles et créatives.
 
-_See the readme file in the main branch for updated instructions and information._
+![Java Defis de code][lil-thumbnail-url] 
+
+_Voir le fichier readme de la branche principale pour des informations et instructions actualisées._
+
 ## Instructions
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
+
+Ce cours utilise GitHub Codespaces. Pour faire apparaître l'environnement du cours dans votre navigateur, il vous suffit de cliquer sur :
+- `Fork` à droite du nom du dépôt, pour faire votre fork de ce dépôt,
+- le bouton `<> Code`, pour faire sélectionner l'onglet Codespaces,
+- le bouton `Create codespace on main`, pour initier et faire apparaître un codespace.
+
+Ce dépôt possède une ou deux branches par leçon (vidéo de cours). Vous pouvez naviguer dans les versions grâce au menu d'accès aux branches accessible en cliquant sur le nom de branche en bas à gauche de VisualStudio Code.
 
 ## Branches
-The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 
-Some branches will have a beginning and an end state. These are marked with the letters `b` for "beginning" and `e` for "end". The `b` branch contains the code as it is at the beginning of the movie. The `e` branch contains the code as it is at the end of the movie. The `main` branch holds the final state of the code when in the course.
 
-When switching from one exercise files branch to the next after making changes to the files, you may get a message like this:
-
-    error: Your local changes to the following files would be overwritten by checkout:        [files]
-    Please commit your changes or stash them before you switch branches.
-    Aborting
-
-To resolve this issue:
-	
-    Add changes to git using this command: git add .
-	Commit changes using this command: git commit -m "some message"
-
-## Installing
-1. To use these exercise files, you must have the following installed:
-	- [list of requirements for course]
-2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. [Course-specific instructions]
+Les branches sont structurées pour correspondre aux leçons (vidéos de cours). La convention de nommage est CHAPITRE#-VIDEO#. Par exemple, la branche nommée 02-03 correspond au second chapitre et troisième vidéo du chapitre. 
+Certaines branches auront un état de début et de fin. Elles sont marquées par un b pour "beginning" (début) et e pour "end" (fin). La branche b contient les fichiers tels qu'ils sont au début de la leçon. La branche e contient les fichiers qui ont changé.
 
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
-
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
-
+[lil-course-url]: https://www.linkedin.com/learning/java-defis-code-2841480-cs
+[lil-thumbnail-url]: https://cdn.lynda.com/course/2825378/2825378-1584377756312-16x9.jpg
