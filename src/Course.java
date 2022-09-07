@@ -31,7 +31,7 @@ public class Course {
   }
 
   public Iterable<Participant> getInscrits() {
-    return this.getClassement();
+    return etat.getInscrits().map(p -> (Participant) p).toList();
   }
 
   public Iterable<Participant> getClassement() {

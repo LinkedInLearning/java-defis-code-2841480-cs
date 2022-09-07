@@ -2,6 +2,9 @@ public class Participant implements etats.Participant {
     private final String nom;
   
     public Participant(String nom) {
+      if (nom == null) {
+        throw new NullPointerException("Le nom ne peut être nul");
+      }
       this.nom = nom;
     }
   

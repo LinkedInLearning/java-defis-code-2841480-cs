@@ -19,8 +19,8 @@ public abstract class EtatCourse {
     return contexte;
   }
 
-  public Iterable<Participant> getInscrits() {
-    return contexte.getInscrits();
+  public Stream<Participant> getInscrits() {
+    return contexte.getInscrits().stream();
   }
 
   public abstract Stream<Participant> getClassement();
