@@ -13,7 +13,9 @@ public class LeNullCEstNul {
 		Scanner clavier = new Scanner(System.in);
 		boolean fini = false;
 		
-		Categorie categorie = args.length > 0 ? new Categorie(args[0]) : null;
+		Categorie categorie = args.length > 0 
+			? new Categorie(args[0]) 
+			: Categorie.HORS_CATEGORIE;
 		Course course = new Course(categorie);
 		
 		while( !fini ) {
@@ -76,26 +78,31 @@ public class LeNullCEstNul {
 	}
 
   public static void classement(Course course) {
-    if (course.getClassement() == null) {
-      System.err.println("Inscriptions en cours");
-    } else if (!course.getClassement().iterator().hasNext()) {
-      System.err.println("Course non termin�e");
-    } else {
-      System.out.println("CLASSEMENT :");
-      int position = 1;
-
-      for (Participant participant : course.getClassement()) {
-        System.out.printf("%4d) %s\n", position++, participant);
-      }
-      System.out.println();
-    }
-  }
+		switch(course.getEtat()) {
+		case Course.INSCRIPTION:
+			System.err.println("Inscriptions en cours");
+			break;
+		case Course.EN_COURS:
+			System.err.println("Course non terminée");
+			break;
+		case Course.ARRIVEE:
+			System.out.println("CLASSEMENT :");
+			int position = 1;
+			
+			for(Participant participant : course.getClassement()) {
+				System.out.printf("%4d) %s\n", position++, participant);				
+			}
+			System.out.println();
+			break;
+		}
+	}
 
   public static void vainqueur(Course course) {
-    if (course.getGagnant() == null) {
-      System.err.println("Inscriptions ou course en cours");
-    } else {
-      System.out.println(course.getGagnant());
-    }
-  }
+		if(course.getEtat() != Course.ARRIVEE) {
+			System.err.println("Inscriptions ou course en cours");
+		}
+		else {
+			System.out.println(course.getGagnant());
+		}
+	}
 }

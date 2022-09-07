@@ -1,61 +1,56 @@
-import java.util.ArrayList;
-import java.util.List;
+import etats.Arrivee;
+import etats.ContexteCourse;
+import etats.EnCours;
+import etats.EtatCourse;
+import etats.Inscription;
 
 public class Course {
-  private final List<Participant> inscrits = new ArrayList<Participant>();
-  private List<Participant> classement = null;
+  public final static int INSCRIPTION = 0,
+      EN_COURS = 1,
+      ARRIVEE = 2;
+  private final ContexteCourse contexte = new ContexteCourse();
   private final Categorie categorie;
 
-  public Course(Categorie categorie) {
-    this.categorie = categorie;
-  }
+  private EtatCourse etat = new Inscription(INSCRIPTION, contexte,
+      new EnCours(EN_COURS, contexte,
+          new Arrivee(ARRIVEE, contexte)));
 
-  public Course() {
-    this(null);
+  public Course(Categorie categorie) {
+    if (categorie == null) {
+      throw new NullPointerException("La categorie doit être renseignée");
+    }
+    this.categorie = categorie;
   }
 
   public Categorie getCategorie() {
     return categorie;
   }
 
+  public int getEtat() {
+    return this.etat.getId();
+  }
+
   public Iterable<Participant> getInscrits() {
-    return inscrits;
+    return this.getClassement();
   }
 
   public Iterable<Participant> getClassement() {
-    return classement;
+    return etat.getClassement().map(p -> (Participant) p).toList();
   }
 
   public Participant getGagnant() {
-    return classement == null || classement.size() == 0
-        ? null
-        : classement.get(0);
+    return (Participant) etat.getGagnant();
   }
 
   public void inscrire(Participant participant) {
-    if (classement != null) {
-      throw new IllegalStateException("Inscriptions fermées, la course est commencée");
-    } else if (inscrits.contains(participant)) {
-      throw new IllegalArgumentException("Le/La participant-e est déjà inscrit-e");
-    }
-    inscrits.add(participant);
+    etat = etat.inscrire(participant);
   }
 
   public void demarrer() {
-    if (classement != null) {
-      throw new IllegalStateException("La course est déjà démarrée");
-    }
-    classement = new ArrayList<>();
+    etat = etat.demarrer();
   }
 
   public void passerLaLigneDArrivee(Participant participant) {
-    if (classement == null) {
-      throw new IllegalStateException("La course n'a pas démarré, inscriptions en cours");
-    } else if (!inscrits.contains(participant)) {
-      throw new IllegalArgumentException("Le/La participant-e n'est pas inscrit-e");
-    } else if (classement.contains(participant)) {
-      throw new IllegalArgumentException("Le/La participant-e est déjà arrivé-e");
-    }
-    classement.add(participant);
+    etat = etat.passerLaLigneDArrivee(participant);
   }
 }

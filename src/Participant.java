@@ -1,4 +1,4 @@
-public class Participant {
+public class Participant implements etats.Participant {
     private final String nom;
   
     public Participant(String nom) {
