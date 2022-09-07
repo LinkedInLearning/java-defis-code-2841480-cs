@@ -7,9 +7,11 @@ import java.util.Random;
 public class LesTraitementsBienParalleles {
   @Test
   public void testGrandTableauAleatoire() {
-    Integer[] tableau = new Integer[4700000];
+    Integer[] tableau = new Integer[5000000];
     Integer[] attendu = remplirDupliquerEtTrier(tableau);
     Tri tri = new TriParPivotRec(16);
+    // Tri tri = new TriParPivotMultithreads(16);
+    // Tri tri = new TriParPivotForkJoin(16);
 
     tri.trier(tableau);
     assertArrayEquals(attendu, tableau);
