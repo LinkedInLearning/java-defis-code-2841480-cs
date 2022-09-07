@@ -1,3 +1,5 @@
+package modeles;
+
 public class Participant {
     private final String nom;
   

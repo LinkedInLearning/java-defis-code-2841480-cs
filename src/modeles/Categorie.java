@@ -1,3 +1,5 @@
+package modeles;
+
 public class Categorie {
   public final static Categorie HORS_CATEGORIE = new Categorie("Hors catégorie");
 
