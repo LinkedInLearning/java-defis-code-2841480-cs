@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class LeNullCEstNul {
+public class EparpillerFaconPuzzle {
   public static void main(String [] args) {
 		String [] menu = new String[] {
 			"Inscrire un nouveau participant",
@@ -79,7 +79,7 @@ public class LeNullCEstNul {
     if (course.getClassement() == null) {
       System.err.println("Inscriptions en cours");
     } else if (!course.getClassement().iterator().hasNext()) {
-      System.err.println("Course non termin�e");
+      System.err.println("Course non terminée");
     } else {
       System.out.println("CLASSEMENT :");
       int position = 1;
