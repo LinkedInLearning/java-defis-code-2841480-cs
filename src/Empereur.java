@@ -30,7 +30,16 @@ public class Empereur {
     return this.predecesseur;
   }
 
+  private static Empereur[] extraireListe(Empereur courant, int nombre) {
+    Empereur[] resultat = courant.estLePremier()
+        ? new Empereur[nombre]
+        : extraireListe(courant.getPredecesseur(), nombre + 1);
+
+    resultat[resultat.length - nombre] = courant;
+    return resultat;
+  }
+
   public static Empereur[] extraireListe(Empereur recent) {
-    return null;
+    return extraireListe(recent, 1);
   }
 }
