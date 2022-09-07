@@ -1,3 +1,6 @@
+import java.time.Duration;
+import java.time.Instant;
+
 public class NombrePremier {
   public interface Recherche {
     public boolean estTrouvee();
@@ -10,24 +13,24 @@ public class NombrePremier {
   }
 
   public static void traiter(Recherche recherche, int tempsLimite) {
+    Instant fin = Instant.now().plus(Duration.ofMillis(tempsLimite));
     AlgoRecherche r = (AlgoRecherche) recherche;
-    long nombre = r.getNombre();
-    long diviseur;
 
-    do {
-      nombre++;
-      diviseur = 2;
-      while (diviseur < nombre && nombre % diviseur != 0) {
-        diviseur++;
-      }
-    } while (diviseur < nombre);
-    r.setValeurTrouvee(nombre);
+    while (Instant.now().compareTo(fin) < 0 && !r.estTrouvee()) {
+      r.iteration();
+    }
   }
 
   private static class AlgoRecherche implements Recherche {
-    private long valeurTrouvee;
-    private boolean trouvee = false;
-    private final long nombre;
+    private static enum Etat {
+      Init,
+      Recherche,
+      Trouvee
+    }
+    private Etat etat = Etat.Init;
+
+    private long diviseur;
+    private long nombre;
 
     public AlgoRecherche(long nombre) {
       this.nombre = nombre;
@@ -35,7 +38,7 @@ public class NombrePremier {
 
     @Override
     public boolean estTrouvee() {
-      return trouvee;
+      return etat == Etat.Trouvee;
     }
 
     @Override
@@ -43,17 +46,28 @@ public class NombrePremier {
       if (!estTrouvee()) {
         throw new IllegalStateException("Aucune valeur trouvée pour l'instant");
       }
-      return valeurTrouvee;
-    }
-
-    public void setValeurTrouvee(
-        long valeurTrouvee) {
-      this.valeurTrouvee = valeurTrouvee;
-      this.trouvee = true;
-    }
-
-    public long getNombre() {
       return nombre;
+    }
+
+    public void iteration() {
+      switch (etat) {
+        case Init:
+          nombre++;
+          diviseur = 2;
+          etat = Etat.Recherche;
+          break;
+        case Recherche:
+          if (diviseur == nombre) {
+            etat = Etat.Trouvee;
+          } else if (nombre % diviseur == 0) {
+            etat = Etat.Init;
+          } else {
+            diviseur++;
+          }
+          break;
+        case Trouvee:
+          break;
+      }
     }
   }
 }
