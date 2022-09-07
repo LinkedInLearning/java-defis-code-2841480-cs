@@ -1,12 +1,9 @@
-import java.util.Arrays;
-import java.util.LinkedList;
-
-public class Tirage {
-  private LinkedList<Integer> nombres;
+public final class Tirage {
+  private final Integer[] nombres;
   private final int objectif;
 
   public Tirage(Integer[] nombres, int objectif) {
-    this.nombres = new LinkedList<Integer>(Arrays.asList(nombres));
+    this.nombres = nombres;
     this.objectif = objectif;
   }
 
@@ -15,22 +12,23 @@ public class Tirage {
   }
 
   public int taille() {
-    return nombres.size();
+    return nombres.length;
   }
 
-  public void ajouter(int indice, int valeur) {
-    nombres.add(indice, valeur);
+  public int get(int indice) {
+    return nombres[indice];
   }
 
-  public void ajouterFin(int valeur) {
-    nombres.addLast(valeur);
-  }
+  public Tirage modifier(int terme1, int terme2, int total) {
+    Integer[] nbrs = new Integer[nombres.length - 1];
+    int cur = 0;
 
-  public int retirer(int indice) {
-    return nombres.remove(indice);
-  }
-
-  public int retirerFin() {
-    return nombres.removeLast();
+    for (int i = 0; i < nombres.length; i++) {
+      if (i != terme1 && i != terme2) {
+        nbrs[cur++] = nombres[i];
+      }
+    }
+    nbrs[cur] = total;
+    return new Tirage(nbrs, objectif);
   }
 }
