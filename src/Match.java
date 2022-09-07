@@ -2,34 +2,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Match {
-  private int[] jeu = { 0, 0 };
-  private List<Manche> manches = new ArrayList<>();
-
   private final static int[] SEQUENCE_JEU = { 0, 15, 30, 40 };
   private final static int INDICE_40 = SEQUENCE_JEU.length - 1;
+  private final static int MINIMUM_JEUX_GAGNANTS = 6;
+
+  private Confrontation jeu = new Confrontation(INDICE_40 + 1);
+  private List<Confrontation> manches = new ArrayList<>();
+
+  private void NouvelleManche() {
+    manches.add(new Confrontation(MINIMUM_JEUX_GAGNANTS));
+  }
 
   public Match() {
-    manches.add(new Manche());
+    NouvelleManche();
   }
 
   public void marquer(Joueur joueur) {
-    int gagnant = ++jeu[joueur.getIndice()];
-
-    if (gagnant > INDICE_40) {
-      int perdant = jeu[1 - joueur.getIndice()];
-
-      if (gagnant - perdant >= 2) {
-        jeu[0] = jeu[1] = 0;
-        if (manches.get(manches.size() - 1).gagner(joueur)) {
-          manches.add(new Manche());
-        }
+    if (jeu.gagner(joueur)) {
+      jeu.raz();
+      if (getMancheCourante().gagner(joueur)) {
+        NouvelleManche();
       }
     }
   }
 
+  private Confrontation getMancheCourante() {
+    return manches.get(getIndiceManche());
+  }
+
   public int getScoreJeu(Joueur joueur) {
     return SEQUENCE_JEU[Math.min(
-        jeu[joueur.getIndice()],
+        jeu.getScore(joueur),
         INDICE_40)];
   }
 
@@ -38,25 +41,40 @@ public class Match {
   }
 
   public boolean avantage(Joueur joueur) {
-    return jeu[joueur.getIndice()] > Math.max(INDICE_40, jeu[1 - joueur.getIndice()]);
+    return jeu.estDevant(joueur, 1);
   }
 
   public int getIndiceManche() {
     return manches.size() - 1;
   }
 
-  private class Manche {
+  private class Confrontation {
     private int[] scores = { 0, 0 };
+    private int minVictoire;
 
-    public boolean gagner(Joueur j) {
-      int score = ++scores[j.getIndice()];
-      int autre = scores[1 - j.getIndice()];
+    public Confrontation(int minVictoire) {
+      this.minVictoire = minVictoire;
+    }
 
-      return score >= 6 && score - autre >= 2;
+    public void raz() {
+      scores[0] = scores[1] = 0;
     }
 
     public int getScore(Joueur j) {
       return scores[j.getIndice()];
+    }
+
+    private int getScoreAdverse(Joueur j) {
+      return scores[1 - j.getIndice()];
+    }
+
+    public boolean estDevant(Joueur j, int delta) {
+      return getScore(j) >= Math.max(minVictoire, getScoreAdverse(j) + delta);
+    }
+
+    public boolean gagner(Joueur j) {
+      scores[j.getIndice()]++;
+      return estDevant(j, 2);
     }
   }
 }
