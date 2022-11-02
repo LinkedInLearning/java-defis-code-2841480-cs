@@ -9,6 +9,9 @@ _Voir le fichier readme de la branche principale pour des informations et instru
 
 ## Instructions
 
+Ce cours est intégré à GitHub Codespaces, un environnement de développement instantané « dans le nuage » qui offre toutes les fonctionnalités de votre IDE préféré sans nécessiter de configuration sur une machine locale. Avec Codespaces, vous pouvez vous exercer à partir de n'importe quelle machine, à tout moment, tout en utilisant un outil que vous êtes susceptible de rencontrer sur votre lieu de travail.  
+Chaque épisode de la série Level Up offre au moins 12 occasions de s'exercer à la programmation à différents niveaux de difficulté, afin que vous puissiez vous mettre au défi et renforcer ce que vous avez appris. Consultez la vidéo "Utilisation des espaces de code GitHub avec ce cours" pour savoir comment mettre en place un espace de code. 
+
 Ce cours utilise GitHub Codespaces. Pour faire apparaître l'environnement du cours dans votre navigateur, il vous suffit de cliquer sur :
 - `Fork` à droite du nom du dépôt, pour faire votre fork de ce dépôt,
 - le bouton `<> Code`, pour faire sélectionner l'onglet Codespaces,
