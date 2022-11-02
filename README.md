@@ -30,6 +30,6 @@ Certaines branches auront un état de début et de fin. Elles sont marquées par
 
 Retrouvez mes autres formations sur [LinkedIn Learning][lil-URL-trainer].
 
-[lil-course-url]: https://www.linkedin.com/learning/javascript-defis-code
+[lil-course-url]: https://www.linkedin.com/learning/java-defis-code-19766559
 [lil-thumbnail-url]: https://cdn.lynda.com/course/2825378/2825378-1584377756312-16x9.jpg
 [lil-URL-trainer]: https://www.linkedin.com/learning/instructors/sylvain-labasse
