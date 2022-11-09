@@ -3,7 +3,7 @@ Dépôt du cours Défis de code Java. Le cours complet est disponible sur Linked
 
 Que vous soyez développeuse ou développeur java débutant-e, confirmé-e ou expert-e, vous trouverez dans ces défis de quoi mettre à l'épreuve vos compétences. Ce cours propose 18 défis qui abordent des bonnes pratiques, des astuces de programmation, des challenges algorithmiques ou des tendances comme l'immutabilité ou le parallélisme. En sortant de votre zone de confort, vous consoliderez votre maîtrise du langage et stimulerez vos neurones pour reprendre vos projets java avec des approches nouvelles et créatives.
 
-![2841480_fr_FR_TN](https://user-images.githubusercontent.com/61017085/200617314-39535e37-e613-4f8c-ae66-d6da4df0e89d.jpg)
+![image](https://user-images.githubusercontent.com/61017085/200780146-75ea4aa9-fc40-457e-955c-432a08cde52a.png)
 
 _Voir le fichier readme de la branche principale pour des informations et instructions actualisées._
 
