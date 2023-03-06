@@ -3,7 +3,7 @@ Dépôt du cours Défis de code Java. Le cours complet est disponible sur Linked
 
 Que vous soyez développeuse ou développeur java débutant-e, confirmé-e ou expert-e, vous trouverez dans ces défis de quoi mettre à l'épreuve vos compétences. Ce cours propose 18 défis qui abordent des bonnes pratiques, des astuces de programmation, des challenges algorithmiques ou des tendances comme l'immutabilité ou le parallélisme. En sortant de votre zone de confort, vous consoliderez votre maîtrise du langage et stimulerez vos neurones pour reprendre vos projets java avec des approches nouvelles et créatives.
 
-![image](https://user-images.githubusercontent.com/61017085/200780146-75ea4aa9-fc40-457e-955c-432a08cde52a.png)
+![COURSENAME][lil-thumbnail-url] 
 
 _Voir le fichier readme de la branche principale pour des informations et instructions actualisées._
 
@@ -31,5 +31,5 @@ Certaines branches auront un état de début et de fin. Elles sont marquées par
 Retrouvez mes autres formations sur [LinkedIn Learning][lil-URL-trainer].
 
 [lil-course-url]: https://www.linkedin.com/learning/java-defis-code-19766559
-[lil-thumbnail-url]: https://cdn.lynda.com/course/2825378/2825378-1584377756312-16x9.jpg
+[lil-thumbnail-url]: https://cdn.lynda.com/course/2841480/2841480-1667922974629-16x9.jpg
 [lil-URL-trainer]: https://www.linkedin.com/learning/instructors/sylvain-labasse
